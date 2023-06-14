@@ -18,14 +18,6 @@ function toggleSubmenu(submenu) {
 	}
 }
 
-// Function to close all open dropdown menus
-function closeAllDropdowns() {
-	dropdownMenus.forEach(function (dropdown) {
-		dropdown.classList.remove("show");
-		closeSubmenus(dropdown);
-	});
-}
-
 // Event listener for window resize
 window.addEventListener("resize", function () {
 	if (window.innerWidth < 992) {
@@ -34,7 +26,6 @@ window.addEventListener("resize", function () {
 			closeSubmenus(dropdown);
 		});
 	}
-	closeAllDropdowns();
 });
 
 // Event listener for DOMContentLoaded
