@@ -123,7 +123,7 @@ i {
 @media (max-width: 991px) {
 
     .dropdown-menu .dropdown-menu {
-        margin-left: 0.7rem;
+        margin-left: 1.5rem;
         margin-right: 0.7rem;
     }
 }
