@@ -25,14 +25,6 @@ window.addEventListener("resize", function () {
 		dropdownMenus.forEach(function (dropdown) {
 			closeSubmenus(dropdown);
 		});
-	} else {
-		// Display all submenus on larger screens
-		dropdownMenus.forEach(function (dropdown) {
-			var submenus = dropdown.querySelectorAll(".submenu");
-			submenus.forEach(function (submenu) {
-				submenu.style.display = "block";
-			});
-		});
 	}
 });
 
