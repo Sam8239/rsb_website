@@ -115,19 +115,6 @@ i {
         left: auto;
     }
 
-    .dropdown-menu>li:hover>.submenu {
-        display: block;
-    }
-
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-    }
-
-    .dropdown>.dropdown-toggle:active,
-    .submenu:active>.submenu {
-        pointer-events: none;
-    }
-
 }
 
 /* ============ desktop view .end// ============ */
