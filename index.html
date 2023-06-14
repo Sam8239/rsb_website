@@ -38,11 +38,45 @@
 
     <!-- Multilevel Dropdown Starts-->
     <script>
+        // Store a reference to the dropdown menus
+        var dropdownMenus = document.querySelectorAll(".navbar .dropdown");
+
+        // Function to close all submenus of a dropdown menu
+        function closeSubmenus(dropdown) {
+            var submenus = dropdown.querySelectorAll(".submenu");
+            submenus.forEach(function (submenu) {
+                submenu.style.display = "none";
+            });
+        }
+
+        // Function to toggle submenu display
+        function toggleSubmenu(submenu) {
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+
+        // Event listener for window resize
         window.addEventListener("resize", function () {
-            "use strict";
-            window.location.reload();
+            if (window.innerWidth < 992) {
+                // Close all submenus on smaller screens
+                dropdownMenus.forEach(function (dropdown) {
+                    closeSubmenus(dropdown);
+                });
+            } else {
+                // Display all submenus on larger screens
+                dropdownMenus.forEach(function (dropdown) {
+                    var submenus = dropdown.querySelectorAll(".submenu");
+                    submenus.forEach(function (submenu) {
+                        submenu.style.display = "block";
+                    });
+                });
+            }
         });
 
+        // Event listener for DOMContentLoaded
         document.addEventListener("DOMContentLoaded", function () {
             // Prevent closing from click inside dropdown
             document.querySelectorAll(".dropdown-menu").forEach(function (element) {
@@ -51,38 +85,22 @@
                 });
             });
 
-            // make it as accordion for smaller screens
-            if (window.innerWidth < 992) {
-                // close all inner dropdowns when parent is closed
-                document
-                    .querySelectorAll(".navbar .dropdown")
-                    .forEach(function (everydropdown) {
-                        everydropdown.addEventListener("hidden.bs.dropdown", function () {
-                            // after dropdown is hidden, then find all submenus
-                            this.querySelectorAll(".submenu").forEach(function (everysubmenu) {
-                                // hide every submenu as well
-                                everysubmenu.style.display = "none";
-                            });
-                        });
-                    });
-
-                document.querySelectorAll(".dropdown-menu a").forEach(function (element) {
-                    element.addEventListener("click", function (e) {
-                        let nextEl = this.nextElementSibling;
-                        if (nextEl && nextEl.classList.contains("submenu")) {
-                            // prevent opening link if link needs to open dropdown
-                            e.preventDefault();
-                            if (nextEl.style.display == "block") {
-                                nextEl.style.display = "none";
-                            } else {
-                                nextEl.style.display = "block";
-                            }
-                        }
-                    });
-                });
+            // Function to handle submenu click
+            function handleSubmenuClick(e) {
+                var nextEl = this.nextElementSibling;
+                if (nextEl && nextEl.classList.contains("submenu")) {
+                    // Prevent opening link if link needs to open dropdown
+                    e.preventDefault();
+                    toggleSubmenu(nextEl);
+                }
             }
-            // end if innerWidth
+
+            // Attach submenu click event listener to dropdown menu links
+            document.querySelectorAll(".dropdown-menu a").forEach(function (element) {
+                element.addEventListener("click", handleSubmenuClick);
+            });
         });
+
 
     </script>
     <!-- Multilevel Dropdown Ends -->
