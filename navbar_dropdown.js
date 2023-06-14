@@ -26,6 +26,14 @@ window.addEventListener("resize", function () {
 			closeSubmenus(dropdown);
 		});
 	}
+
+	dropdownMenus.forEach(function (dropdown) {
+		var isOpen = dropdown.classList.contains("show");
+		if (isOpen) {
+			var toggle = dropdown.querySelector('[data-toggle="dropdown"]');
+			toggle.click();
+		}
+	});
 });
 
 // Event listener for DOMContentLoaded
