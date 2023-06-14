@@ -38,12 +38,7 @@
 
     <!-- Multilevel Dropdown Starts-->
     <script>
-        window.addEventListener("resize", function () {
-            "use strict";
-            window.location.reload();
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
+        function handleDropdown() {
             // Prevent closing from click inside dropdown
             document.querySelectorAll(".dropdown-menu").forEach(function (element) {
                 element.addEventListener("click", function (e) {
@@ -51,26 +46,24 @@
                 });
             });
 
-            // make it as accordion for smaller screens
+            // Make it as an accordion for smaller screens
             if (window.innerWidth < 992) {
-                // close all inner dropdowns when parent is closed
-                document
-                    .querySelectorAll(".navbar .dropdown")
-                    .forEach(function (everydropdown) {
-                        everydropdown.addEventListener("hidden.bs.dropdown", function () {
-                            // after dropdown is hidden, then find all submenus
-                            this.querySelectorAll(".submenu").forEach(function (everysubmenu) {
-                                // hide every submenu as well
-                                everysubmenu.style.display = "none";
-                            });
+                // Close all inner dropdowns when parent is closed
+                document.querySelectorAll(".navbar .dropdown").forEach(function (everydropdown) {
+                    everydropdown.addEventListener("hidden.bs.dropdown", function () {
+                        // After dropdown is hidden, find all submenus
+                        this.querySelectorAll(".submenu").forEach(function (everysubmenu) {
+                            // Hide every submenu as well
+                            everysubmenu.style.display = "none";
                         });
                     });
+                });
 
                 document.querySelectorAll(".dropdown-menu a").forEach(function (element) {
                     element.addEventListener("click", function (e) {
                         let nextEl = this.nextElementSibling;
                         if (nextEl && nextEl.classList.contains("submenu")) {
-                            // prevent opening link if link needs to open dropdown
+                            // Prevent opening link if link needs to open dropdown
                             e.preventDefault();
                             if (nextEl.style.display == "block") {
                                 nextEl.style.display = "none";
@@ -81,8 +74,13 @@
                     });
                 });
             }
-            // end if innerWidth
-        });
+        }
+
+        // Call the function when DOM content is loaded
+        document.addEventListener("DOMContentLoaded", handleDropdown);
+
+        // Call the function when the window is resized
+        window.addEventListener("resize", handleDropdown);
 
     </script>
     <!-- Multilevel Dropdown Ends -->
