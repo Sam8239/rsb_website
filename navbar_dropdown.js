@@ -51,4 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.querySelectorAll(".dropdown-menu a").forEach(function (element) {
 		element.addEventListener("click", handleSubmenuClick);
 	});
+
+	// Event listener for hidden.bs.dropdown event
+	dropdownMenus.forEach(function (dropdown) {
+		dropdown.addEventListener("hidden.bs.dropdown", function () {
+			closeSubmenus(dropdown);
+		});
+	});
 });
