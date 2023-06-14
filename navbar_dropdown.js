@@ -1,5 +1,7 @@
 // Store a reference to the dropdown menus
-var dropdownMenus = document.querySelectorAll(".navbar .dropdown");
+var dropdownMenus = document.querySelectorAll(
+	".navbar .dropdown .dropdown-menu"
+);
 
 // Function to close all submenus of a dropdown menu
 function closeSubmenus(dropdown) {
