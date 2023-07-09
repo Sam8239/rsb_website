@@ -184,6 +184,10 @@ i {
     .carousel-item img {
         height: 200px !important;
     }
+
+    .carousel-item h5 {
+        font-size: 18px !important;
+    }
 }
 
 
