@@ -186,6 +186,7 @@ i {
     }
 }
 
+
 .notice_board {
     height: 337px;
     overflow: hidden;
@@ -389,7 +390,8 @@ table.sample td a:hover {
 /* Servicemen Ends */
 
 .latest img {
-    height: 500px;
+    height: 610px;
+    object-fit: contain;
 }
 
 /* Footer Starts */
