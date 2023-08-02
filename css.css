@@ -310,6 +310,10 @@ table.sample {
     margin: 10px 0;
 }
 
+table.sample td:nth-child(2) {
+    text-align: left !important;
+}
+
 table.sample th {
     font: bold 14px Arial, Helvetica, sans-serif;
     text-align: center;
