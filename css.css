@@ -78,18 +78,14 @@ i {
     color: rgb(151, 217, 241);
 }
 
-
-@media (max-width: 600px) {
-    .top_header {
-        font-size: 0.7rem;
-    }
-}
-
 .header img {
     width: 100%;
     min-height: 50px;
 }
 
+strong {
+    text-wrap: wrap!important;
+}
 /* Top Header Ends*/
 
 /* Header Ends */
@@ -182,7 +178,7 @@ i {
 
 @media only screen and (max-width: 992px) {
     .carousel-item img {
-        height: 200px !important;
+        height: 250px !important;
     }
 
     .carousel-item h5 {
