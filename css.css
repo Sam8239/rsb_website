@@ -211,7 +211,7 @@ strong {
 
 .scroll_up {
     height: 260px !important;
-    animation: scroll_up 25s linear infinite;
+    animation: scroll_up 20s linear infinite;
 }
 
 .scroll_up:hover {
@@ -224,7 +224,7 @@ strong {
     }
 
     100% {
-        transform: translateY(-140%);
+        transform: translateY(-100%);
     }
 }
 
